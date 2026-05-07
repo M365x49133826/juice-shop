@@ -15,11 +15,11 @@
     },
     "appServicePlanName": {
       "type": "string",
-      "defaultValue": "[format('sp-devsecops-{0}', resourcegroup().tags.LabInstance)]"
+      "defaultValue": "[format('sp-DevSecOps1-{0}', resourcegroup().tags.LabInstance)]"
     },
     "acrName": {
       "type": "string",
-      "defaultValue": "[format('acrdevsecops{0}', resourcegroup().tags.LabInstance)]"
+      "defaultValue": "[format('acrDevSecOps1{0}', resourcegroup().tags.LabInstance)]"
     },
     "location": {
       "type": "string",
@@ -35,13 +35,13 @@
   },
   "variables": {
     "DockerComposeExpanded": "[base64ToString('dmVyc2lvbjogJzMuNycKCnZvbHVtZXM6CiAgZGVwZW5kZW5jeS10cmFjazoKCnNlcnZpY2VzOgogIGR0cmFjay1mcm9udGVuZDoKICAgIGltYWdlOiBkZXBlbmRlbmN5dHJhY2svYnVuZGxlZAogICAgZW52aXJvbm1lbnQ6CiAgICAtIEFMUElORV9EQVRBQkFTRV9NT0RFPWV4dGVybmFsCiAgICAtIEFMUElORV9EQVRBQkFTRV9VUkw9amRiYzpzcWxzZXJ2ZXI6Ly9fX19TUUxfTkFNRV9fXy5kYXRhYmFzZS53aW5kb3dzLm5ldDoxNDMzO2RhdGFiYXNlTmFtZT1kdHJhY2s7c2VuZFN0cmluZ1BhcmFtZXRlcnNBc1VuaWNvZGU9ZmFsc2UKICAgIC0gQUxQSU5FX0RBVEFCQVNFX0RSSVZFUj1jb20ubWljcm9zb2Z0LnNxbHNlcnZlci5qZGJjLlNRTFNlcnZlckRyaXZlcgogICAgLSBBTFBJTkVfREFUQUJBU0VfVVNFUk5BTUU9c2Vjb3BzCiAgICAtIEFMUElORV9EQVRBQkFTRV9QQVNTV09SRD1QQCQkdzByZDEyMwogICAgZGVwbG95OgogICAgICByZXNvdXJjZXM6CiAgICAgICAgbGltaXRzOgogICAgICAgICAgbWVtb3J5OiAxMjI4OG0KICAgICAgICByZXNlcnZhdGlvbnM6CiAgICAgICAgICBtZW1vcnk6IDgxOTJtCiAgICAgIHJlc3RhcnRfcG9saWN5OgogICAgICAgIGNvbmRpdGlvbjogb24tZmFpbHVyZQogICAgcG9ydHM6CiAgICAgIC0gIjgwODA6ODA4MCIKICAgIHZvbHVtZXM6CiAgICAgIC0gJHtXRUJBUFBfU1RPUkFHRV9IT01FfS9zaXRlL3d3d3Jvb3Q6L2RhdGEKICAgIHJlc3RhcnQ6IHVubGVzcy1zdG9wcGVk')]",
-    "DockerCompose": "[replace(variables('DockerComposeExpanded'),'___SQL_NAME___', format('sql-devsecops-{0}', resourcegroup().tags.LabInstance))]"
+    "DockerCompose": "[replace(variables('DockerComposeExpanded'),'___SQL_NAME___', format('sql-DevSecOps1-{0}', resourcegroup().tags.LabInstance))]"
   },
   "resources": [
     {
       "type": "Microsoft.Web/sites",
       "apiVersion": "2021-03-01",
-      "name": "[format('{0}-{1}-devsecops-{2}', parameters('webAppName'), 'prod', resourcegroup().tags.LabInstance)]",
+      "name": "[format('{0}-{1}-DevSecOps1-{2}', parameters('webAppName'), 'prod', resourcegroup().tags.LabInstance)]",
       "location": "[parameters('location')]",
       "kind": "app,linux,container",
       "identity": {
